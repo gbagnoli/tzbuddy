@@ -15,7 +15,7 @@ setup(
     version=VERSION,
     description='Visual repr of time in different timezones',
     author=AUTHOR,
-    py_modules=["tzbuddy.py"],
+    packages=["tzbuddy"],
     author_email='gbagnoli@gmail.com',
     entry_points="""\
     [console_scripts]
