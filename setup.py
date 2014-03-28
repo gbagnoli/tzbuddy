@@ -11,7 +11,7 @@ if sys.version_info < (2, 7):
     requirements.append('argparse')
 
 setup(
-    name='tzbuddy',
+    name='TZBuddy',
     version=VERSION,
     description='Visual repr of time in different timezones',
     author=AUTHOR,
