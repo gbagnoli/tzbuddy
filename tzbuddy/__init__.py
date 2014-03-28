@@ -90,7 +90,7 @@ def main():
     args = parse_args()
     res = []
     if args.no_order:
-        for tz in args.tz:
+        for tz in (x[0] for x in args.tz):
             res.append(calculate_tz(args.date, tz, args.span,
                                     not args.no_header,
                                     not args.vertical))
