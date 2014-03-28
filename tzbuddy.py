@@ -21,6 +21,8 @@ def parse_args():
                         help="Calculate times from a specific date")
     parser.add_argument("--vertical", "-v", default=False, action="store_true",
                         help="Vertical output")
+    parser.add_argument("--span", "-s", default=24, type=int, dest="span",
+                        help="How many hours to print. defaults to 24")
     args = parser.parse_args()
 
     if not args.date:
@@ -55,7 +57,7 @@ def reordered(tzs, inverse):
     return reversed([x[0] for x in st])
 
 
-def calculate_tz(date, tz, header=True, sep=True):
+def calculate_tz(date, tz, span=24, header=True, sep=True):
     local = date.to(tz)
     today = local.day
     hours = []
@@ -65,7 +67,8 @@ def calculate_tz(date, tz, header=True, sep=True):
         if sep:
             hours.append(u" ·")
 
-    for h in (x - 11 for x in xrange(24)):
+    span_half = int(span / 2.0) - 1
+    for h in (x - span_half for x in xrange(span)):
         hr = local.replace(hours=h)
         if hr.day < today:
             mod = "-"
@@ -88,11 +91,13 @@ def main():
     res = []
     if args.no_order:
         for tz in args.tz:
-            res.append(calculate_tz(args.date, tz, not args.no_header,
+            res.append(calculate_tz(args.date, tz, args.span,
+                                    not args.no_header,
                                     not args.vertical))
     else:
         for tz in reordered(args.tz, args.inverse_order):
-            res.append(calculate_tz(args.date, tz, not args.no_header,
+            res.append(calculate_tz(args.date, tz, args.span,
+                                    not args.no_header,
                                     not args.vertical))
 
     if not args.vertical:
