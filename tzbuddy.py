@@ -112,7 +112,7 @@ def main():
             w = len(res[1][0]) + 2
 
         for r in res:
-            print(" ".join(x.center(w, " ") for x in r))
+            print(".".join(x.center(w, " ") for x in r))
 
 if __name__ == '__main__':
     main()
