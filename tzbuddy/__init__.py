@@ -63,7 +63,7 @@ def calculate_tz(date, tz, span=24, header=True, sep=True):
     hours = []
     if header:
         hours.append("{0:16}".format(tz.title()))
-        hours.append(local.format("ddd hh:mm a DD/MM/YY"))
+        hours.append(local.format("(Z) ddd hh:mm a DD/MM/YY"))
         if sep:
             hours.append(u" ·")
 
