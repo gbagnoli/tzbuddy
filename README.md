@@ -14,13 +14,16 @@ Us/Pacific      Fri 09:11 am 28/03/14 · 01  02  03  04  05  06  07  08 | 09 | 1
 
 Install
 ========
-Clone the repository, then install inside the virtualenv
+
+Install using pypi
 ```bash
-pip install ./
+pip install TZBuddy
 ```
 
-It is not currently pushed to pypi, but it will be soon.
-
+To install from git, clone the repository, then install
+```bash
+pip install -e ./
+```
 
 Usage
 =======

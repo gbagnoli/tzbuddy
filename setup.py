@@ -4,7 +4,7 @@ import sys
 from distutils.core import setup
 
 VERSION = "0.1"
-AUTHOR = 'Giacomo Bagnoli <gbagnoli@gmail.com>'
+AUTHOR = 'Giacomo Bagnoli'
 requirements = ['arrow']
 
 if sys.version_info < (2, 7):
@@ -15,11 +15,22 @@ setup(
     version=VERSION,
     description='Visual repr of time in different timezones',
     author=AUTHOR,
-    packages=["tzbuddy"],
     author_email='gbagnoli@gmail.com',
+    url='https://github.com/gbagnoli/tzbuddy',
+    download_url='https://github.com/gbagnoli/tzbuddy/tarball/0.1',
+    license='MIT',
+    packages=["tzbuddy"],
     entry_points="""\
     [console_scripts]
     tzbuddy = tzbuddy:main
     """,
-    install_requires=requirements
+    install_requires=requirements,
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+        'Topic :: Utilities'
+    ]
 )
