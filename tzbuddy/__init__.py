@@ -68,7 +68,7 @@ def calculate_tz(date, tz, span=24, header=True, sep=True):
             hours.append(u" ·")
 
     span_half = int(span / 2.0) - 1
-    for h in (x - span_half for x in xrange(span)):
+    for h in (x - span_half for x in range(span)):
         hr = local.replace(hours=h)
         if hr.day < today:
             mod = "-"
