@@ -105,7 +105,7 @@ def main():
             print("".join(r))
 
     else:
-        res = zip(*res[::-1])
+        res = list(zip(*res[::-1]))
         if args.no_header:
             w = max((len(x) for x in res[0])) + 2
         else:
