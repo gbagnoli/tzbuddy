@@ -3,7 +3,7 @@
 import sys
 from distutils.core import setup
 
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 AUTHOR = 'Giacomo Bagnoli'
 requirements = ['arrow']
 
