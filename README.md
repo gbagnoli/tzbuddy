@@ -15,7 +15,17 @@ Us/Pacific      Fri 09:11 am 28/03/14 · 01  02  03  04  05  06  07  08 | 09 | 1
 Install
 ========
 
-Install using pypi
+The suggested installation method is via
+[pipsi](https://github.com/mitsuhiko/pipsi)
+
+```bash
+
+pipsi install TZBuddy
+```
+
+Alternatively, the package is pusblished on pypi, so it can be installed by just
+using pip
+
 ```bash
 pip install TZBuddy
 ```

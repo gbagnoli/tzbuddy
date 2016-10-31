@@ -3,8 +3,9 @@
 import sys
 from distutils.core import setup
 
-VERSION = "0.2.2"
+VERSION = "0.2.3"
 AUTHOR = 'Giacomo Bagnoli'
+DOWNLOAD_URL='https://github.com/gbagnoli/tzbuddy/releases/tag/{0}'
 requirements = ['arrow']
 
 if sys.version_info < (2, 7):
@@ -17,7 +18,7 @@ setup(
     author=AUTHOR,
     author_email='gbagnoli@gmail.com',
     url='https://github.com/gbagnoli/tzbuddy',
-    download_url='https://github.com/gbagnoli/tzbuddy/tarball/0.1',
+    download_url=DOWNLOAD_URL.format(VERSION),
     license='MIT',
     packages=["tzbuddy"],
     entry_points="""\
@@ -26,7 +27,7 @@ setup(
     """,
     install_requires=requirements,
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2',
