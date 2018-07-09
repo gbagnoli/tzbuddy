@@ -23,6 +23,8 @@ def parse_args():
                         help="Vertical output")
     parser.add_argument("--span", "-s", default=24, type=int, dest="span",
                         help="How many hours to print. defaults to 24")
+    parser.add_argument("--am-pm-hours", "-a", help="Use 12h (am/pm) for hours",
+                        action="store_true", default=False)
     args = parser.parse_args()
 
     if not args.date:
@@ -57,7 +59,7 @@ def reordered(tzs, inverse):
     return reversed([x[0] for x in st])
 
 
-def calculate_tz(date, tz, span=24, header=True, sep=True):
+def calculate_tz(date, tz, hour_format_12, span=24, header=True, sep=True):
     local = date.to(tz)
     today = local.day
     hours = []
@@ -77,7 +79,11 @@ def calculate_tz(date, tz, span=24, header=True, sep=True):
         else:
             mod = " "
 
+        if hour_format_12:
+            hr = hr.format("hha")
+        else:
         hr = hr.format("HH")
+
         if h == 0:
             hours.append("| %s%s|" % (hr, mod))
         else:
@@ -91,12 +97,12 @@ def main():
     res = []
     if args.no_order:
         for tz in (x[0] for x in args.tz):
-            res.append(calculate_tz(args.date, tz, args.span,
+            res.append(calculate_tz(args.date, tz, args.am_pm_hours, args.span,
                                     not args.no_header,
                                     not args.vertical))
     else:
         for tz in reordered(args.tz, args.inverse_order):
-            res.append(calculate_tz(args.date, tz, args.span,
+            res.append(calculate_tz(args.date, tz, args.am_pm_hours, args.span,
                                     not args.no_header,
                                     not args.vertical))
 
