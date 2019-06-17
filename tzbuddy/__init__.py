@@ -82,7 +82,7 @@ def calculate_tz(date, tz, hour_format_12, span=24, header=True, sep=True):
         if hour_format_12:
             hr = hr.format("hha")
         else:
-        hr = hr.format("HH")
+            hr = hr.format("HH")
 
         if h == 0:
             hours.append("| %s%s|" % (hr, mod))
