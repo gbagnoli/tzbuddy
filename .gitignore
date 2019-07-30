@@ -3,3 +3,6 @@
 .ropeproject
 dist
 MANIFEST
+.mypy_cache/
+.python-version
+.DS_Store

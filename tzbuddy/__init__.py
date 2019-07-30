@@ -108,7 +108,7 @@ def main():
 
     if not args.vertical:
         for r in res:
-            print("".join(r).encode('utf-8').strip())
+            print("".join(r))
 
     else:
         res = list(zip(*res[::-1]))
