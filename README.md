@@ -1,3 +1,9 @@
+# DEPRECATED
+
+this repository is obsoleted - the new implementation is at
+https://github.com/gbagnoli/tzbuddy.rs
+
+
 Overview
 =========
 
@@ -39,4 +45,3 @@ Usage
 =======
 
 See `tzbuddy --help` for all available options. There is no configuration, so you probably want to create an alias.
-
